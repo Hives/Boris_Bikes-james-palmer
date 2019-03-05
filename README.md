@@ -1,2 +1,3 @@
 # Boris_bikes
-# Boris_Bikes
+
+Working through the Boris Bike pair programming exercises. Code written can be found in the lib file.
