@@ -1,7 +1,7 @@
 require_relative 'docking_station'
 
 class Bike
-  attr_reader :bike
+  
   def working?
     true
   end
