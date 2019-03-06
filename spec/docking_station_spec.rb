@@ -7,8 +7,10 @@ describe DockingStation do
     expect(DockingStation.new)
   end
 
-end
-
-describe DockingStation do
   it {is_expected.to respond_to(:release_bike)}
+
+  it 'creates new working bike' do
+    bike = subject.release_bike
+    expect(bike). to be_working
+  end
 end
