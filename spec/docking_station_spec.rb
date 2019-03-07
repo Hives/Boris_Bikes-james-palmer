@@ -52,4 +52,16 @@ describe DockingStation do
     end
   end
 
+  describe '#full?' do
+    it 'raises an error when user tries to acces full' do
+      expect{(subject.full?)}.to raise_error(NoMethodError)
+    end
+  end
+
+  describe '#empty?' do
+    it 'raises an error when user tries to acces empty' do
+      expect{(subject.empty?)}.to raise_error(NoMethodError)
+    end
+  end
+
 end
