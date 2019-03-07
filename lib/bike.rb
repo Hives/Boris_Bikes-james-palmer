@@ -13,4 +13,7 @@ class Bike
      #   true
      # end
   end
+
+  def is_broken
+  end
 end
