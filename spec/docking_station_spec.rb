@@ -19,14 +19,14 @@ describe DockingStation do
   it 'docks a bike' do
     # bike = subject.release_bike
     bike = Bike.new  # release_bike no longer creates bike
-    expect(subject.dock(bike)).to eq bike
+    expect(subject.dock(bike)).to eq [bike]
   end
 
   it 'tells us if a bike is docked' do
     # bike = subject.release_bike
     bike = Bike.new # release_bike no longer creates bike
     subject.dock(bike)
-    expect(subject.bike).to eq bike
+    expect(subject.bikes).to eq [bike]
   end
 
   describe '#release_bike' do
@@ -34,7 +34,7 @@ describe DockingStation do
       bike = Bike.new
       subject.dock(bike)
       # we want to release the bike we docked
-      expect(subject.release_bike).to eq bike
+      expect(subject.release_bike).to eq [bike]
     end
     it 'raises an error when there are no bikes available' do
       # don't need to dock a bike first
@@ -45,8 +45,8 @@ describe DockingStation do
 
   describe '#dock' do
     it 'raises an error if dock capacity is full' do
-      bike = Bike.new
-      subject.dock(bike)
+      # bike = Bike.new
+      20.times{subject.dock(Bike.new)} # changed test capacity to 20
       bike = Bike.new # override to create > 1 instance variables
       expect{subject.dock(bike)}.to raise_error 'Dockstation is full'
     end
