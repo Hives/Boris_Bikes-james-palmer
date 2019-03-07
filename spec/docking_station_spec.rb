@@ -46,7 +46,8 @@ describe DockingStation do
   describe '#dock' do
     it 'raises an error if dock capacity is full' do
       # bike = Bike.new
-      20.times{subject.dock(Bike.new)} # changed test capacity to 20
+      DockingStation::DEFAULT_CAPACITY.times{subject.dock(Bike.new)} # changed test capacity to 20
+      # constant taken from another class => reference class with this syntax
       bike = Bike.new # override to create > 1 instance variables
       expect{subject.dock(bike)}.to raise_error 'Dockstation is full'
     end
