@@ -69,4 +69,16 @@ describe DockingStation do
     expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
   end
 
+  it 'can be initalised to a different capacity' do
+    docking_station = DockingStation.new(108)
+    expect(docking_station.capacity).to eq 108
+  end
+
+  it 'gives an error if capacity is set to 2 and 3 bikes are docked' do
+    docking_station = DockingStation.new(2)
+    2.times { docking_station.dock(Bike.new) }
+    p docking_station
+    expect{ docking_station.dock(Bike.new) }.to raise_error 'Dockstation is full'
+  end
+
 end
