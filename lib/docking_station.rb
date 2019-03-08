@@ -13,7 +13,9 @@ class DockingStation
 
   def release_bike
     fail 'No bikes available' if empty?
-    @bikes
+    # code for release bike only if working true
+    # recursion needed?
+      @bikes.pop
   end
   def dock(bike)
     fail 'Dockstation is full' if full? #capacity = 20

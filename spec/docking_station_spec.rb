@@ -34,13 +34,12 @@ describe DockingStation do
       bike = Bike.new
       subject.dock(bike)
       # we want to release the bike we docked
-      expect(subject.release_bike).to eq [bike]
+      expect(subject.release_bike).to eq bike
     end
     it 'raises an error when there are no bikes available' do
       # don't need to dock a bike first
       expect {subject.release_bike}.to raise_error 'No bikes available'
     end
-
   end
 
   describe '#dock' do
@@ -80,5 +79,22 @@ describe DockingStation do
     p docking_station
     expect{ docking_station.dock(Bike.new) }.to raise_error 'Dockstation is full'
   end
+
+  # it 'will not release a broken bike' do
+  #   docking_station = DockingStation.new(1)
+  #   bike = Bike.new
+  #   bike.is_broken
+  #   docking_station.dock(bike)
+  #   expect{ docking_station.release_bike}.to raise_error 'No working bike'
+  # end
+
+  # I think above test works
+
+   #  it 'will not release a broken bike' do
+   #   bike = Bike.new
+   #   bike.is_broken
+   #   subject.dock(bike)
+   #   expect{ docking_station.release_bike }.to raise_error 'No working bikes'
+   # end
 
 end
