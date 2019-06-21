@@ -11,9 +11,10 @@ describe DockingStation do
   it {is_expected.to respond_to(:dock).with(1).argument }
 
 
+  # this test is no longer valid, as we're initialising the docking station with an empty array, so a new dockign station can't release a bike.
   # it 'creates new working bike' do
   #   bike = subject.release_bike
-  #   expect(bike). to be_working
+  #   expect(bike).to be_working
   # end
 
   it 'docks a bike' do
